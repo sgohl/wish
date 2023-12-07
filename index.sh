@@ -44,7 +44,7 @@ do
 	Include ${LIB}
 done
 
-## Source APP specific libs
+## Include APP specific libs
 Include app/lib/_pre.sh
 
 for LIB in $(find app/lib -type f -not -name ".*" -not -name "_pre.sh" -not -name "_post.sh" -name "*.sh" | sort -n)
@@ -54,5 +54,5 @@ done
 
 Include app/lib/_post.sh
 
-## Source final app index.sh
+## Include final app index.sh
 Include app/index.sh
