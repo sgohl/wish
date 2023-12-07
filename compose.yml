@@ -1,3 +1,6 @@
+## this compose is for developing wish itself.
+## for your own project app, read the docs
+
 version: '2.4'
 
 services:
