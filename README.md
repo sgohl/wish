@@ -6,7 +6,6 @@ based on:
 
 - https://github.com/msoap/shell2http
 - https://github.com/TekWizely/bash-tpl
-- https://startbootstrap.com/template/sb-admin
 - https://github.com/damphat/kv-bash
 
 > this is a POC! it neither claims being secure nor bug-free and is mainly for educational purposes.
