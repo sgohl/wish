@@ -4,3 +4,4 @@ compose.yml
 LICENSE
 .git
 .gitignore
+.dockerignore

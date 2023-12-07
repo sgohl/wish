@@ -13,10 +13,15 @@ RUN apk add -U --no-cache --allow-untrusted --repository=https://dl-cdn.alpineli
 RUN curl -Lso /bin/bash-tpl https://github.com/TekWizely/bash-tpl/releases/download/v0.7.1/bash-tpl \
 &&  chmod +x /bin/bash-tpl
 
-## wish + example-app
+## docker-dist
 COPY docker-dist /
+
+## wish + example-app
 COPY . /www
 RUN chmod +x /www/index.sh
+
+## cleanup (until docker supports COPY --exclude=) 
+RUN rm -rf /www/docker-dist
 
 ## SUPERVISOR SERVICES
 ENV SPV_NGINX=true
