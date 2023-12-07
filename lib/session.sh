@@ -46,7 +46,11 @@ Session() {
 
 	set -eu
 
-	[[ -n ${1} ]] || return 1
+	if [[ -z ${1} ]]
+ 	then
+ 		return 1
+   	fi
+    
 	USERNAME="${1}"
 
 	## generate uuid as session-id
