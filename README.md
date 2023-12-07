@@ -12,7 +12,7 @@ based on:
 
 # Why?
 
-This project is born from the wish of having a system-near control panel (possibly for embedded systems where resources are limited) with a modern admin-ui being able to execute system/shell commands directly within pages, instead of using these `system()` or `exec()` functions from php, for example.
+This project is born from the wish of having a system-near control panel with a modern admin-ui being able to execute system/shell commands directly within pages, instead of using these `system()` or `exec()` functions from php, for example.
 
 A full-fledged web framework would be kind-of overkill for someone not being routined and having to learn it first, only to then still abstract the actual system commands to get them executed.
 
