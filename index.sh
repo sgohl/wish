@@ -32,14 +32,10 @@ Include() {
 ## Load sane application defaults
 Include lib/defaults.sh
 
-## Load .env (copied from .env.dist)
-Include .env
-
 ## Load APP specific .env
 Include app/.env
 
 ## Load APPENV dependent .env (dev, prod, ...)
-Include .env.${APPENV}
 Include app/.env.${APPENV}
 
 ## Include distributed libs
