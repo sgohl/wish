@@ -2,7 +2,7 @@
 
 A simple web framework in `bash`
 
-based on:
+based on (and thanks to):
 
 - https://github.com/msoap/shell2http
 - https://github.com/TekWizely/bash-tpl
