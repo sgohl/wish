@@ -25,6 +25,7 @@ RUN rm -rf /www/docker-dist
 
 ## SUPERVISOR SERVICES
 ENV SPV_NGINX=true
+ENV SPV_SHELL2HTTP=true
 ENV SPV_CRON=false
 ENV SPV_ENTRYPOINT=true
 
