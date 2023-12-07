@@ -22,11 +22,9 @@ Basically, it's mainly suitable for putting a web-frontend/api on top of existin
 
 # Features
 
-- bash-tpl for rendering bash code into HTML
 - auth/cookie/session
-- secure the whole app or specific Routes/Views/Pages/Fragments for logged-in users via `Guard`
+- secure the whole app or specific Routes/Views/Pages/Fragments for logged-in users via `Guard` or roles via `Role`
 - file-based pseudo-database (no relations by default)
-- prepared for websockets (uses https://github.com/joewalnes/reconnecting-websocket)
 
 # How it works
 
