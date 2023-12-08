@@ -1,8 +1,27 @@
 Render() {
 
-	URI_LAST=$URI_LAST source <(bash-tpl ${1})
-	 
+    if read -t 0; then
+        STDIN=$(cat -)
+    fi    
+
+    if [[ ${STDIN} ]]
+    then
+
+        source <(echo ${STDIN} | bash-tpl)
+
+    else
+
+        if [[ ${1} ]]
+        then
+
+            source <(bash-tpl ${1})
+
+        fi
+
+    fi
+
 }
+
 
 View() {
 
