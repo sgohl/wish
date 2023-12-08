@@ -15,3 +15,9 @@ if [[ -z ${COOKIE_LIFETIME} ]]
 then
     COOKIE_LIFETIME=30
 fi
+
+## see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
+if [[ -z ${COOKIE_SAMESITE} ]]
+then
+    COOKIE_SAMESITE=Strict
+fi
