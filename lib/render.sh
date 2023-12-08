@@ -97,16 +97,21 @@ Redirect() {
 
 	## for browser-based redirects
 
-	URL=${1}
+	URL=${1:-}
 
 	case $URL in
+ 
 		back|refer)
-			echo '<html><meta http-equiv="refresh" content="0; URL='"${HTTP_REFERER}"'" /></html>'
+   			TARGET=${HTTP_REFERER}
 		;;
+  
 		*)
-			echo '<html><meta http-equiv="refresh" content="0; URL=/'"${URL}"'" /></html>'
+			TARGET=${URL}
 		;;
+  
 	esac
+
+ 	echo '<html><meta http-equiv="refresh" content="0; URL=/'"${TARGET:-}"'" /></html>'
 
 }
 
