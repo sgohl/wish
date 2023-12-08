@@ -92,30 +92,6 @@ Fragment() {
 	
 }
 
-
-Redirect() {
-
-	## for browser-based redirects
-
-	URL=${1:-}
-
-	case $URL in
- 
-		back|refer)
-   			TARGET=${HTTP_REFERER}
-		;;
-  
-		*)
-			TARGET=${URL}
-		;;
-  
-	esac
-
- 	echo '<html><meta http-equiv="refresh" content="0; URL=/'"${TARGET:-}"'" /></html>'
-
-}
-
-
 Logo() {
 
 	echo ${LOGO_URL}
