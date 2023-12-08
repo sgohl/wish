@@ -29,11 +29,11 @@ Redirect() {
 		;;
   
 		*)
-			TARGET="/${1}"
+			TARGET="${1}"
 		;;
   
 	esac
 
- 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET:-}"'" /></html>'
+ 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET:/}"'" /></html>'
 
 }
