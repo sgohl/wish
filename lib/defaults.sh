@@ -1,6 +1,6 @@
 Setenv() {
-    KEY="${1}"
-    VALUE="${2}"
+    KEY="${1:-_}"
+    VALUE="${2:-}"
 
     if [[ -z ${!KEY} ]]
     then
