@@ -68,7 +68,7 @@ Session() {
 	## add response header "set-cookie" for storing session in browser cookie
  	## MUST be the first lines of output/response (no body before)
   	## two additional empty lines are required to terminate HEADERS and start BODY
-	echo "set-cookie: session=${UUID}"
+	echo "set-cookie: session=${UUID}; SameSite=Strict"
  	echo ""
   	echo ""
 
