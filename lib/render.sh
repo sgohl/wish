@@ -1,24 +1,15 @@
 Render() {
 
-    if read -t 0; then
-        STDIN=$(cat -)
-    fi    
+	if [[ ${1} ]]
+	then
+    		source <(bash-tpl ${1})
 
-    if [[ ${STDIN} ]]
-    then
-
-        source <(echo ${STDIN} | bash-tpl)
-
-    else
-
-        if [[ ${1} ]]
-        then
-
-            source <(bash-tpl ${1})
-
-        fi
-
-    fi
+	else
+ 		if read -t 0; then
+			STDIN=$(cat -)
+	  		source <(echo ${STDIN} | bash-tpl)
+		fi
+	fi
 
 }
 
