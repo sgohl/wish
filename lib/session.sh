@@ -1,5 +1,5 @@
 ## COOKIE (session)
-SESSION=$(echo "${HTTP_COOKIE}" | grep -o session=.* | cut -f2 -d'=' | cut -f1 -d';')
+SESSION=$(echo "${HTTP_COOKIE}" | grep -o session=.* | cut -f2 -d'=' | cut -f1 -d';' | tr -d '"')
 
 if [[ ! -f ${PATH_SESSION}/${SESSION} ]]
 then
