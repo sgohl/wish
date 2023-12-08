@@ -1,23 +1,21 @@
+Setenv() {
+    KEY="${1}"
+    VALUE="${2}"
+
+    if [[ -z ${!KEY} ]]
+    then
+        export ${KEY}="${VALUE}"
+    fi
+}
+
 ## DBF == Database Files (folder); flat-file storage for simple non-relational data
-if [[ -z ${DBF} ]]
-then
-    DBF=/www/db
-fi
+Setenv DBF /www/db
 
 ## PATH(folder) where session ids are stored. make sure folder exists. you may use app/lib/_hook-pre.sh for 'mkdir -p ${PATH_SESSION}'
-if [[ -z ${PATH_SESSION} ]]
-then
-    PATH_SESSION=${DBF}/session
-fi
+Setenv PATH_SESSION ${DBF}/session
 
 ## Cookie lifetime in days added to the current date used in Session()
-if [[ -z ${COOKIE_LIFETIME} ]]
-then
-    COOKIE_LIFETIME=30
-fi
+Setenv COOKIE_LIFETIME 30
 
 ## see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
-if [[ -z ${COOKIE_SAMESITE} ]]
-then
-    COOKIE_SAMESITE=Strict
-fi
+Setenv COOKIE_SAMESITE Strict
