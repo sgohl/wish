@@ -1,10 +1,13 @@
 Setenv() {
-    KEY="${1:-_}"
-    VALUE="${2:-}"
-
-    if [[ -z ${!KEY} ]]
+    if [[ $# -eq 2 ]]
     then
-        export ${KEY}="${VALUE}"
+        KEY="${1}"
+        VALUE="${2}"
+    
+        if [[ -z ${!KEY} ]]
+        then
+            export ${KEY}="${VALUE}"
+        fi
     fi
 }
 
