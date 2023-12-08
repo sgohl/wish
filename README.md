@@ -26,6 +26,6 @@ Basically, it's mainly suitable for putting a web-frontend/api on top of existin
 - secure the whole app or specific Routes/Views/Pages/Fragments for logged-in users via `Guard` or roles via `Role`
 - file-based pseudo-database (no relations by default)
 
-# How it works
+# Wiki
 
-...
+[...](https://github.com/sgohl/wiSH/wiki)https://github.com/sgohl/wiSH/wiki
