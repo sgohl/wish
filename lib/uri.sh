@@ -24,7 +24,7 @@ Redirect() {
 
  	TARGET=${1:-}
 
-	case $1 in
+	case ${TARGET} in
  
 		back|refer)
    			TARGET=${HTTP_REFERER}
