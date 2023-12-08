@@ -5,7 +5,8 @@ Render() {
     		source <(bash-tpl ${1})
 
 	else
- 		if read -t 0; then
+ 		if read -t 0
+   		then
 			STDIN=$(cat -)
 	  		source <(echo ${STDIN} | bash-tpl)
 		fi
