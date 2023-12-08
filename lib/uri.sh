@@ -1,6 +1,6 @@
 URI=${PATH_INFO#/}
 
-if [[ -n $URI ]]
+if [[ $URI ]]
 then
 	# basename; the last part (slash delimiter) of URI 
 	URI_LAST=$(basename ${URI})
