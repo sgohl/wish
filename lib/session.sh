@@ -78,10 +78,12 @@ Logout() {
 
 	if [[ ${SESSION} ]] 
 	then
-
 		rm -f ${PATH_SESSION}/${SESSION}
-
 	fi
+
+ 	echo "set-cookie: session=; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+ 	echo ""
+  	echo ""
 
 	Redirect login
 
