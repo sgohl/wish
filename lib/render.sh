@@ -35,7 +35,23 @@ Page() {
 
 	## Page is the content rendered within a View
 
-	PAGE=${1%.html}
+	if [[ ${1} ]]
+	then
+	
+		PAGE=${1}
+	
+	else
+	
+		if [[ -z ${PAGE} ]]
+		then
+		
+			PAGE=${URI}
+		    
+		fi
+	
+	fi
+	
+	PAGE=${PAGE%.html}
 
 	## if $1 is empty and no URI, always Render index
 
