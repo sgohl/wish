@@ -22,6 +22,8 @@ Redirect() {
 
 	## for browser-based redirects
 
+ 	TARGET=${1:-}
+
 	case $1 in
  
 		back|refer)
@@ -29,11 +31,11 @@ Redirect() {
 		;;
   
 		*)
-			TARGET="${1}"
+			TARGET="/${TARGET}"
 		;;
   
 	esac
 
- 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET:/}"'" /></html>'
+ 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET}"'" /></html>'
 
 }
