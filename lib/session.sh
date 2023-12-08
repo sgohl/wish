@@ -9,6 +9,7 @@ fi
 Guard() {
 
 	## To show an element for only logged-in users, Guard must be chained with &&
+ 	## or via if-block
 	## example: Guard && Fragment foobar
 
 	if [[ ! -f ${PATH_SESSION}/${SESSION} ]]
