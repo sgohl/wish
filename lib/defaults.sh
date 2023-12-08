@@ -10,3 +10,8 @@ then
     PATH_SESSION=${DBF}/session
 fi
 
+## Cookie lifetime in days added to the current date used in Session()
+if [[ -z ${COOKIE_LIFETIME} ]]
+then
+    COOKIE_LIFETIME=30
+fi
