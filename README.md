@@ -27,4 +27,4 @@ Basically, it's mainly suitable for putting a web-frontend/api on top of existin
 
 # Wiki
 
-[...](https://github.com/sgohl/wiSH/wiki)https://github.com/sgohl/wiSH/wiki
+https://github.com/sgohl/wiSH/wiki
