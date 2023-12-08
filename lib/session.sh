@@ -28,12 +28,7 @@ LoggedUser() {
 
 	## returns the name of logged-in user (content of session file)
 
-	if [[ -z ${SESSION} ]]
-	then
-		return 1
-	fi
-
-	if [[ ! -f ${PATH_SESSION}/${SESSION} ]]
+	if [[ -z ${SESSION} ]] || [[ ! -f ${PATH_SESSION}/${SESSION} ]]
 	then
 		return 1
 	fi
