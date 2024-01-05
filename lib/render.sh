@@ -141,9 +141,9 @@ Fragment() {
 		
 	fi
 
-	PLUG=$(dirname ${FRAGMENT%/*})
+	PLUG=$(echo ${FRAGMENT} | cut -f1 -d'/')
 	FRAGMENT=${FRAGMENT#*/}
-	FILE=app/plug/${PLUG}/fragments/${FRAGMENT}
+	FILE=app/plug/${PLUG}/fragments/${FRAGMENT}.html
 
 	if [[ -f ${FILE} ]]
 	then
