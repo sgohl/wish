@@ -55,7 +55,7 @@ done
 Include app/lib/_post.sh
 
 ## Include Plugs
-for LIB in $(find app/plug/*/lib -type f -name "*.sh" | sort -n)
+for LIB in $(find app/plug/*/lib -type f -name "*.sh" 2>/dev/null | sort -n)
 do
 	Include ${LIB}
 done
