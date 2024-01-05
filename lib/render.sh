@@ -130,11 +130,27 @@ Page() {
 
 Fragment() {
 
-	FRAGMENT=app/fragments/${1%.html}.html
+	FRAGMENT=${1%.html}
+	FILE=app/fragments/${FRAGMENT}.html
 
-	if [[ -f ${FRAGMENT} ]]
+	if [[ -f ${FILE} ]]
 	then
-		Render ${FRAGMENT}
+
+		Render ${FILE}
+		return
+		
+	fi
+
+	PLUG=$(dirname ${FRAGMENT%/*})
+	FRAGMENT=${FRAGMENT#*/}
+	FILE=app/plug/${PLUG}/fragments/${FRAGMENT}
+
+	if [[ -f ${FILE} ]]
+	then
+
+		Render ${FILE}
+		return
+
 	fi
 	
 }
