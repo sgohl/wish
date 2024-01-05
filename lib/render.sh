@@ -80,16 +80,6 @@ Page() {
 
 			Render ${DIR}/${BASENAME}.html
 			return
-
-		else	
-
-			if [[ -f ${DIR}/index.html ]]
-			then			
-
-				Render ${DIR}/index.html
-				return
-
-			fi
 		
 		fi
 
@@ -116,7 +106,7 @@ Page() {
 
 	## PATH might be directory, Render subdir-index
 
-	SEARCH="app/pages/${URI} app/plug/${DIRNAME}/pages/${URI}"
+	SEARCH="app/plug/${DIRNAME}/pages/${URI} app/plug/$(dirname ${DIRNAME})/pages/${BASENAME} app/plug/$(dirname ${DIRNAME})/pages/$(basename $(dirname $PAGE)) app/plug/${DIRNAME}/pages/${BASENAME} app/plug/${DIRNAME}/pages app/pages/${URI}"
 
 	for DIR in ${SEARCH}
 	do
@@ -126,17 +116,15 @@ Page() {
 
 			## URI is directory, Render subdir-index
 
-			echo found $DIR
-
 			Render ${DIR}/index.html
 			return
-
+		
 		fi
 
 	done
 
 	## ¯\_(ツ)_/¯ (sur)render
-	Page 404 || true
+	Page 404
 
 }
 
