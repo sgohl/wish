@@ -49,10 +49,16 @@ Include app/lib/_pre.sh
 
 for LIB in $(find app/lib -type f -not -name ".*" -not -name "_pre.sh" -not -name "_post.sh" -name "*.sh" | sort -n)
 do
-        Include ${LIB}
+	Include ${LIB}
 done
 
 Include app/lib/_post.sh
+
+## Include Plugs
+for LIB in $(find app/plug/*/lib -type f -name "*.sh" | sort -n)
+do
+	Include ${LIB}
+done
 
 ## Include final app index.sh
 Include app/index.sh
