@@ -136,8 +136,7 @@ Page() {
 	done
 
 	## ¯\_(ツ)_/¯ (sur)render
-	echo "404 -- not found"
-	#Page 404
+	Page 404 || true
 
 }
 
