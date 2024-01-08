@@ -25,7 +25,9 @@ Include() {
 
 		done
 
-	fi
+	else
+ 		return 1
+ 	fi
 	
 }
 
@@ -115,7 +117,7 @@ case ${URI} in
 
         *)
 
-                Include app/index.sh
+                Include app/index.sh || View ${URI}
 
         ;;
 
