@@ -16,12 +16,9 @@ RUN curl -Lso /bin/bash-tpl https://github.com/TekWizely/bash-tpl/releases/downl
 ## docker-dist
 COPY docker-dist /
 
-## wish + example-app
-COPY . /www
+## wish
+COPY wish /www
 RUN chmod +x /www/index.sh
-
-## cleanup (until docker supports COPY --exclude=) 
-RUN rm -rf /www/docker-dist
 
 ## SUPERVISOR SERVICES
 ENV SPV_NGINX=true
