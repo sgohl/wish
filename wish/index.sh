@@ -99,29 +99,6 @@ case ${URI} in
                 done
         ;;
 
-        admin*)
-
-                Role admin || Redirect
-                
-		ACTION=${URIPATH[1]}
-
-		case $ACTION in
-
-			users)
-
-				if [[ ! -f ${DBF}/roles/${r}/${u} ]]
-				then
-					echo "user $u in role $role not found"
-					exit 1
-				fi
-
-				Redirect back
-			;;
-
-		esac
-
-        ;;
-
         *)
 
                 if [[ -f app/index.sh ]]
