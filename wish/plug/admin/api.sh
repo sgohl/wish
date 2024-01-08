@@ -4,11 +4,9 @@ case ${COMMAND} in
 
 		Role admin || Redirect
 
-		ACTION=${URIPATH[1]}
+		case $URI in
 
-		case $ACTION in
-
-			users)
+			admin/users/rm)
 
 				if [[ -f ${DBF}/roles/${r}/${u} ]]
 				then
@@ -17,7 +15,15 @@ case ${COMMAND} in
 
 				Redirect back
 
-		;;
+			;;
+
+			admin/users/addrole)
+
+				touch ${DBF}/roles/${v_role}/${v_user}
+
+				Redirect back
+					
+			;;
 
 		esac
 
