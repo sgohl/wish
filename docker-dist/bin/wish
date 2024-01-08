@@ -9,7 +9,13 @@ __wish-usage() {
 
     plug)
 
-      echo "$0 NAME [git-src]"
+      echo "$0 plug NAME [git-src]"
+
+    ;;
+
+    '')
+
+      echo "$0 (plug|...) OPTIONS"
 
     ;;
 
