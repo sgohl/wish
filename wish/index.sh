@@ -62,11 +62,11 @@ case ${URI} in
 
                 ## array GETARGS = ${GETARGS[@]}
 
-                source app/api.sh
+                Include app/api.sh
 
                 for API in $(find app/plug -type f -name api.sh)
                 do
-                        source $API
+                        Include $API
                 done
         ;;
 
