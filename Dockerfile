@@ -1,7 +1,7 @@
 FROM msoap/shell2http
 ENV PATH=${PATH}:/www/app/bin
 
-WORKDIR /www
+
 ENTRYPOINT []
 CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf", "--pidfile", "/var/run/supervisord.pid"]
 
@@ -19,6 +19,8 @@ COPY docker-dist /
 ## wish
 COPY wish /www
 RUN chmod +x /www/index.sh
+
+WORKDIR /www
 
 ## SUPERVISOR SERVICES
 ENV SPV_NGINX=true
