@@ -13,7 +13,7 @@ services:
       context: .
     volumes:
       - $PWD/wish:/www
-      - ./example-app:/www/app
+      - ./app-example:/www/app
     ports:
       - "80:80"
       - "5000:5000"
