@@ -81,9 +81,37 @@ case ${URI} in
         admin*)
 
                 Role admin || Redirect
-                View ${URI}
+                
+		ACTION=${URIPATH[1]}
+
+		case $ACTION in
+
+			users)
+
+				if [[ ! -f ${DBF}/roles/${r}/${u} ]]
+				then
+					echo "user $u in role $role not found"
+					exit 1
+				fi
+
+				Redirect back
+			;;
+
+		esac
 
         ;;
+
+ 	login)
+
+		Login
+
+	;;
+
+	logout)
+
+		Logout
+
+	;;
 
         *)
 
