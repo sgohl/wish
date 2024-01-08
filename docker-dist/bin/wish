@@ -3,4 +3,53 @@
 ##
 ##
 
-echo Hello
+__wish-usage() {
+
+  case $1 in
+
+    plug)
+
+      echo "$0 NAME [git-src]"
+
+    ;;
+
+  esac
+}
+
+case $1 in
+
+  plug|pl*)
+
+    shift;
+    NAME=$1
+
+    if [[ -z $NAME ]]
+    then
+
+      __wish-usage plug
+
+    fi
+
+    if [[ -d /www/plug/${NAME} ]]
+    then
+
+      cp -Rf /www/plug/${NAME} /www/app/plug/
+
+    else
+
+      GITSRC=$2
+
+      if [[ -z $GITSRC ]]
+      then
+
+        __wish-usage plug
+
+      fi
+
+      git clone ${GITSRC} /www/app/plug/${NAME}
+
+    fi
+
+  ;;
+
+esac
