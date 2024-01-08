@@ -49,4 +49,39 @@ Include app/plug
 # done
 
 ## Include final app index.sh
-Include app/index.sh
+#Include app/index.sh
+
+case ${URI} in
+
+        api*)
+                URI=${URI#*/}
+
+                # split URI path into array ${URIPATH[@]}
+                IFS='/'; read -ra URIPATH <<< "$URI"; unset IFS
+                COMMAND=${URIPATH[0]}
+
+                ## array GETARGS = ${GETARGS[@]}
+
+                source app/api.sh
+
+                for API in $(find app/plug -type f -name api.sh)
+                do
+                        source $API
+                done
+        ;;
+
+        admin*)
+
+                Role admin || Redirect
+                View ${URI}
+
+        ;;
+
+        *)
+
+                Include app/index.sh
+
+        ;;
+
+esac
+
