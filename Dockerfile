@@ -1,7 +1,6 @@
 FROM msoap/shell2http
 ENV PATH=${PATH}:/www/app/bin
 
-
 ENTRYPOINT []
 CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf", "--pidfile", "/var/run/supervisord.pid"]
 
