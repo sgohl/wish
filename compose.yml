@@ -12,7 +12,7 @@ services:
     build:
       context: .
     volumes:
-      - $PWD:/www
+      - $PWD/wish:/www
       - ./example-app:/www/app
     ports:
       - "80:80"
