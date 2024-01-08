@@ -33,6 +33,7 @@ case $1 in
     then
 
       __wish-usage plug
+      exit 1
 
     fi
 
@@ -49,6 +50,7 @@ case $1 in
       then
 
         __wish-usage plug
+        exit 1
 
       fi
 
