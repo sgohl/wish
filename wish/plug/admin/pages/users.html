@@ -1,0 +1,94 @@
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Users</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">
+                        % 
+                            echo $URI
+                        %
+                </li>
+            </ol>
+
+        <div class="row">
+
+            <div class="col-xl-6">
+
+                %
+                    if [[ ! ${GETARGS[@]} ]]
+                    then
+
+                        if PinsAll
+                        then
+
+                            Fragment admin/users/pins-list
+                            
+                        else
+
+                            Fragment admin/users/pins-add
+
+                        fi
+                        
+                    fi
+                %
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        Roles management
+                    </div>
+                    <div class="card-body">
+                        %
+                            if [[ ! ${GETARGS[@]} ]]
+                            then
+                                Fragment admin/roles-list
+                            else
+                                Fragment admin/roles-edit
+                                
+                                ROLE_USERS=$(RoleUsers ${r})
+                                
+                                if [[ -z ${ROLE_USERS} ]]
+                                then
+                                    echo "No Members in role: ${r}"
+                                    Redirect admin/users
+                                fi
+                            fi
+                        %
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+
+        
+    </div>
+
+</main>
+
+
+
+<link href="/css/datatables_override.css" rel="stylesheet" />
+<script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+
+    window.addEventListener('DOMContentLoaded', event => {
+        
+        var dataTables = $('#table-roles-list').DataTable({
+            fixedHeader: true,
+            "paging": false
+        });
+    
+        $('.datatables tbody').on('click','tr', function() {
+            var currentRowData = dataTables.row(this).data();
+            
+            window.location.href = "/admin/users?r=" + currentRowData[0];
+        });
+    
+    }
+    );
+    
+</script>

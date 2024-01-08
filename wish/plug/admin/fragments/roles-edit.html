@@ -1,0 +1,36 @@
+%
+    if [[ ${r} ]]
+    then
+        ROLE=${r}
+    else
+        Fragment admin/roles-list
+    fi
+%
+
+ 
+<table id="table-roles-edit" class="datatables table table-striped display">
+    <thead>
+        <tr>
+            <th>ROLE</th>
+            <th>MEMBERS</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    %
+        for MEMBER in $(RoleUsers ${ROLE})
+        do
+            echo "<tr>
+                    <td>${ROLE}</td>
+                    <td>${MEMBER}</td>
+                    <td>
+                        <a href="$(echo '/api/admin/users?r='"${ROLE}"'&u='"${MEMBER}"'&do=delete')">
+                            <i class="fas fa-solid fa-trash-can">trash-can</i>
+                        </a>
+                    </td>
+            </tr>
+            "
+        done
+    %
+    
+</table>

@@ -1,0 +1,20 @@
+<table id="table-roles-list" class="datatables table table-striped display">
+    <thead>
+        <tr>
+            <th>ROLE</th>
+            <th>MEMBERS</th>
+        </tr>
+    </thead>
+    
+    %
+        for ROLE in $(RolesAll)
+        do
+            echo "<tr>
+                <td>${ROLE}</td>
+                <td>$(RoleUsers ${ROLE})</td>
+            </tr>
+            "
+        done
+    %
+    
+</table>
