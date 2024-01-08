@@ -13,7 +13,7 @@ based on (and thanks to):
 
 This project is born from the *wish* of having a system-near control panel with a modern admin-ui being able to execute system/shell commands directly within pages, instead of using these `system()` or `exec()` functions from php, for example.
 
-A full-fledged web framework would be kind-of overkill for someone not being routined and having to learn it first, only to then still abstract the actual system commands to get them executed.
+A full-fledged web framework would be overkill, only to then still abstract the actual system commands to get them executed and that wouldn't even work well with complex structures you're used to from scripts.
 
 Since it's not bound to any framework or language (well, besides bash, of course), you can easily install perl, python, php-cli, go, ruby, and wrap functions around them for specific purposes.
 
