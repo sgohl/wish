@@ -40,7 +40,7 @@ Include app/.env.${APPENV}
 
 Include lib
 Include app/lib
-Include app/plug/*/lib
+Include app/plug
 
 # ## Include Plugs
 # for LIB in $(find app/plug/*/lib -type f -name "*.sh" 2>/dev/null | sort -n)
