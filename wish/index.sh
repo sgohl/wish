@@ -61,6 +61,14 @@ case ${URI} in
                 COMMAND=${URIPATH[0]}
 
                 ## array GETARGS = ${GETARGS[@]}
+		
+		Trap() {
+		    View 500
+		    exit 1
+		}
+		
+		trap Trap ERR
+  		set -e -o pipefail
 
                 Include app/api.sh
 
