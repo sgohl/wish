@@ -70,7 +70,28 @@ case ${URI} in
 		trap Trap ERR
   		set -e -o pipefail
 
-                Include app/api.sh
+    		case ${COMMAND} in
+	
+			login)
+		
+				Login
+		
+			;;
+		
+			logout)
+		
+				Logout
+		
+			;;
+
+   		esac
+
+                if [[ -f app/api.sh ]]
+		then
+			Include app/api.sh
+		else
+  			View ${URI}
+		fi
 
                 for API in $(find app/plug -type f -name api.sh)
                 do
@@ -100,18 +121,6 @@ case ${URI} in
 		esac
 
         ;;
-
- 	login)
-
-		Login
-
-	;;
-
-	logout)
-
-		Logout
-
-	;;
 
         *)
 
