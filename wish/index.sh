@@ -24,9 +24,7 @@ Include() {
 			Include ${LIB}
 
 		done
-
-	else
- 		return 1
+  
  	fi
 	
 }
