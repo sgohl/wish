@@ -117,7 +117,12 @@ case ${URI} in
 
         *)
 
-                Include app/index.sh || View ${URI}
+                if [[ -f app/index.sh ]]
+		then
+			Include app/index.sh
+		else
+  			View ${URI}
+		fi
 
         ;;
 
