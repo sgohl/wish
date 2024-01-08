@@ -6,7 +6,7 @@ version: '2.4'
 services:
 
   wish:
-    container_name: websh
+    container_name: wish
     stop_signal: "9"
     image: websh
     build:
