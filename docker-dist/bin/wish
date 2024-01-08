@@ -40,7 +40,7 @@ case $1 in
     if [[ -d /www/plug/${NAME} ]]
     then
 
-      cp -Rf /www/plug/${NAME} /www/app/plug/
+      cp -Rfv /www/plug/${NAME} /www/app/plug/
 
     else
 
