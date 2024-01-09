@@ -154,33 +154,3 @@ Fragment() {
 	fi
 	
 }
-
-Logo() {
-
-	echo ${LOGO_URL}
-
-}
-
-
-Redirect() {
-
-	## for browser-based redirects
-
- 	TARGET=${1:-}
-
-	case ${TARGET} in
- 
-		back|refer)
-   			TARGET=${HTTP_REFERER}
-		;;
-  
-		*)
-			TARGET="/${TARGET}"
-		;;
-  
-	esac
-
- 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET}"'" /></html>'
-
-}
-
