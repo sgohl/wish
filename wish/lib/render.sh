@@ -154,3 +154,9 @@ Fragment() {
 	fi
 	
 }
+
+Logo() {
+
+	echo ${LOGO_URL}
+
+}
