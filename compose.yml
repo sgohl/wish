@@ -16,4 +16,4 @@ services:
       - ./app-example:/www/app
     ports:
       - "80:80"
-      - "5000:5000"
+      #- "5000:5000"
