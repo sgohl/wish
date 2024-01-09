@@ -22,7 +22,7 @@ Basically, it's mainly suitable for putting a web-frontend/api on top of existin
 # Features
 
 - auth/cookie/session
-- secure the whole app or specific Routes/Views/Pages/Fragments for logged-in users via `Guard` or roles via `Role`
+- secure the whole app or specific Routes/Views/Pages/Fragments for logged-in users via `Guard` or roles (requires https://github.com/sgohl/wish-admin)
 - file-based pseudo-database (no relations by default)
 
 # Wiki
