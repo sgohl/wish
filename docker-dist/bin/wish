@@ -37,6 +37,13 @@ case $1 in
 
     fi
 
+    if [[ $FORCE ]]
+    then
+
+      rm -rf /www/app/plug/${NAME}
+
+    fi
+
     if [[ -d /www/plug/${NAME} ]]
     then
 
