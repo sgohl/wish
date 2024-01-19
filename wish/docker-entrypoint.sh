@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ## runs at container start by supervisor service
-## after main entrypoint (/www/docker-entrypoint.sh)
 ## this file will be placed as /www/docker-entrypoint.sh
 
 for PLUGBIN in $(find app/plug -type d -name bin)
