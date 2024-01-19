@@ -1,13 +1,19 @@
 #!/bin/bash
 
-## runs at container start
+## runs at container start by supervisor service
 ## after main entrypoint (/www/docker-entrypoint.sh)
-## this file will be placed as /www/app/docker-entrypoint.sh
+## this file will be placed as /www/docker-entrypoint.sh
 
-## Plugs handling
-#-find all bin folders and add to $PATH
-#-tbd
-
+for PLUGBIN in $(find app/plug -type d -name bin)
+do
+  PATH=${PATH}:${PLUGBIN}
+done
 
 ## Chain app entrypoint
 source /www/app/docker-entrypoint.sh
+
+## Chain plug entrypoints
+for ENTRYPOINT in $(find app/plug -type f -name docker-entrypoint.sh)
+do
+  source ${ENTRYPOINT}
+done
