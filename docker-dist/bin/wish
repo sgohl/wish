@@ -61,7 +61,14 @@ case $1 in
 
       fi
 
-      git clone ${GITSRC} /www/app/plug/${NAME}
+      if [[ $BRANCH ]]
+      then
+
+        BRANCH="-b ${BRANCH}"
+
+      fi
+
+      git clone ${GITOPTS} ${BRANCH} ${GITSRC} /www/app/plug/${NAME}
 
     fi
 
