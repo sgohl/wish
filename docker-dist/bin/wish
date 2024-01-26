@@ -70,6 +70,13 @@ case $1 in
 
       git clone ${GITOPTS} ${BRANCH} ${GITSRC} /www/app/plug/${NAME}
 
+      if [[ $GITRM ]]
+      then
+
+        rm -rf /www/app/plug/${NAME}/.git
+
+      fi
+
     fi
 
   ;;
