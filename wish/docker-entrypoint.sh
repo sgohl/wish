@@ -5,7 +5,7 @@
 
 source /www/env.sh
 
-for PLUGBIN in $(find app/plug -type d -name bin)
+for PLUGBIN in $(find app/plug -type d -not -path '*/.*' -name bin)
 do
   PATH=${PATH}:${PLUGBIN}
 done
@@ -14,7 +14,7 @@ done
 source /www/app/docker-entrypoint.sh
 
 ## Chain plug entrypoints
-for ENTRYPOINT in $(find app/plug -type f -name docker-entrypoint.sh)
+for ENTRYPOINT in $(find app/plug -type f -not -path '*/.*' -name docker-entrypoint.sh)
 do
   source ${ENTRYPOINT}
 done
