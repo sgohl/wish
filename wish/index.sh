@@ -53,18 +53,19 @@ case ${URI} in
 
    		esac
 
-                if [[ -f app/api.sh ]]
-		then
-			Include app/api.sh
-		#else
-  			#View ${URI}
-     			## I cant remember why?
-		fi
+  		if [[ ${COMMAND} ]] && [[ -f app/plug/${COMMAND}/api.sh ]]
+    		then
+      
+      			PLUG=${COMMAND}
+	 		COMMAND=${URIPATH[@]:1}
+      			Include app/plug/${PLUG}/api.sh
+	 
+		else
 
-                for API in $(find app/plug -type f -name api.sh)
-                do
-                        Include $API
-                done
+  			Include app/api.sh
+
+     		fi
+
         ;;
 
         *)
