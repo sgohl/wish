@@ -11,6 +11,27 @@ Setenv() {
     fi
 }
 
+Include() {
+
+	if [[ -f "${1}" ]]
+	then
+
+		source "${1}"
+
+	elif [[ -d "${1}" ]]
+	then
+
+		for LIB in $(find "${1}" -type f -not -path '*/.*' -name "*.sh" 2>/dev/null | sort -n)
+		do
+
+			Include ${LIB}
+
+		done
+  
+ 	fi
+	
+}
+
 ## DBF == Database Files (folder); flat-file storage for simple non-relational data
 Setenv DBF /www/db
 
