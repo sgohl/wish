@@ -21,7 +21,7 @@ Include() {
 	elif [[ -d "${1}" ]]
 	then
 
- 		## only lib folders
+ 		## excludes docker-entrypoint.sh + api.sh
 
 		for LIB in $(find "${1}" -type f -not -path '*/.*' -not -name "docker-entrypoint.sh" -not -name "api.sh" -name "*.sh" 2>/dev/null | sort -n)
 		do
