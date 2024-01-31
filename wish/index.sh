@@ -33,23 +33,23 @@ Include() {
 Include env.sh
 
 ## Load APP specific .env
+Include .env
 Include app/.env
 
 ## Load APPENV dependent .env (dev, prod, ...)
+Include .env.${APPENV}
 Include app/.env.${APPENV}
 
+## Load LOCAL .env
+Include .env.local
+Include app/.env.local
+
+## Load libs
 Include lib
 Include app/lib
 Include app/plug
 
-# ## Include Plugs
-# for LIB in $(find app/plug/*/lib -type f -name "*.sh" 2>/dev/null | sort -n)
-# do
-# 	Include ${LIB}
-# done
-
-## Include final app index.sh
-#Include app/index.sh
+## Routes
 
 case ${URI} in
 
