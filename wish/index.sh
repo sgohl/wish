@@ -8,27 +8,6 @@ SOURCE="${BASH_SOURCE[0]}" ; while [ -h "$SOURCE" ]; do
  SOURCE="$(readlink "$SOURCE")" ; [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done ; DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" ; cd $DIR
 
-Include() {
-
-	if [[ -f "${1}" ]]
-	then
-
-		source "${1}"
-
-	elif [[ -d "${1}" ]]
-	then
-
-		for LIB in $(find "${1}" -type f -not -path '*/.*' -name "*.sh" 2>/dev/null | sort -n)
-		do
-
-			Include ${LIB}
-
-		done
-  
- 	fi
-	
-}
-
 ## Load Environment
 Include env.sh
 
