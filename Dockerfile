@@ -23,6 +23,9 @@ COPY app-example /www/app
 COPY wish /www
 RUN chmod +x /www/index.sh
 
+## version
+COPY version /www/
+
 WORKDIR /www
 
 ## SUPERVISOR SERVICES
