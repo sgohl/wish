@@ -22,3 +22,15 @@ Setenv COOKIE_LIFETIME 30
 
 ## see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
 Setenv COOKIE_SAMESITE Strict
+
+## Load APP specific .env
+Include .env
+Include app/.env
+
+## Load APPENV dependent .env (dev, prod, ...)
+Include .env.${APPENV}
+Include app/.env.${APPENV}
+
+## Load LOCAL .env
+Include .env.local
+Include app/.env.local
