@@ -21,7 +21,7 @@ Include() {
 	elif [[ -d "${1}" ]]
 	then
 
-		for LIB in $(find "${1}" -type f -not -path '*/.*' -name "*.sh" 2>/dev/null | sort -n)
+		for LIB in $(find "${1}" -type f -not -path '*/.*' -not -name "docker-entrypoint.sh" -name "*.sh" 2>/dev/null | sort -n)
 		do
 
 			Include ${LIB}
