@@ -41,7 +41,7 @@ Include app/plug
 
 case ${URI} in
 
-        api*)
+        api/*)
                 URI=${URI#*/}
 
                 # split URI path into array ${URIPATH[@]}
@@ -77,8 +77,9 @@ case ${URI} in
                 if [[ -f app/api.sh ]]
 		then
 			Include app/api.sh
-		else
-  			View ${URI}
+		#else
+  			#View ${URI}
+     			## I cant remember why?
 		fi
 
                 for API in $(find app/plug -type f -name api.sh)
