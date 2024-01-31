@@ -29,20 +29,8 @@ Include() {
 	
 }
 
-## Load sane application defaults
+## Load Environment
 Include env.sh
-
-## Load APP specific .env
-Include .env
-Include app/.env
-
-## Load APPENV dependent .env (dev, prod, ...)
-Include .env.${APPENV}
-Include app/.env.${APPENV}
-
-## Load LOCAL .env
-Include .env.local
-Include app/.env.local
 
 ## Load libs
 Include lib
