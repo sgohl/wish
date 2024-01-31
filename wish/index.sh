@@ -9,7 +9,7 @@ SOURCE="${BASH_SOURCE[0]}" ; while [ -h "$SOURCE" ]; do
 done ; DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" ; cd $DIR
 
 ## Load Environment
-Include env.sh
+source env.sh
 
 ## Load libs
 Include lib
