@@ -3,26 +3,54 @@
 ##
 ##
 
+source /www/boot.sh
+
 __wish-usage() {
 
   case $1 in
 
     plug)
 
-      echo "$0 plug NAME [git-src]"
+      echo "1: install all plugins from file (/www/plugs): $0 plug install"
+      echo "2: update all plugins from file (/www/plugs): $0 plug update"
+      echo "3: install given plugin: $0 plug NAME GIT-URL"
 
     ;;
 
     '')
 
-      echo "$0 (plug|...) OPTIONS"
+      echo "available subcommands:"
+      echo "  - plug"
 
     ;;
 
   esac
 }
 
+__wish-plug-update-git() {
+
+  for PLUG in $(ls -d1 /www/app/plug/*)
+  do
+
+      git --git-dir=${PLUG}/.git --work-tree=${PLUG} pull -f
+
+  done
+
+}
+
 case $1 in
+
+  '')
+
+    __wish-usage
+
+  ;;
+
+  boot)
+
+    source /www/boot.sh
+
+  ;;
 
   plug|pl*)
 
@@ -31,11 +59,48 @@ case $1 in
 
     if [[ -z $NAME ]]
     then
-
-      __wish-usage plug
-      exit 1
-
+        __wish-usage plug
+        exit 1
     fi
+
+    case $NAME in install)
+
+      PLUGFILE=${PLUGFILE:-/www/plugs}
+
+      if [[ -f ${PLUGFILE} ]]
+      then
+
+        while read PLUG
+        do
+
+          if [[ $(echo $PLUG | grep -q ^#) ]]
+          then
+              continue
+          fi
+
+          NAME=$(echo ${PLUG} | cut -f1 -d',')
+          GITURL=$(echo ${PLUG} | cut -f2 -d',')
+          BRANCH=$(echo ${PLUG} | cut -f3 -d',')
+          OPTS=$(echo ${PLUG} | cut -f4 -d',')
+
+          BRANCH=$BRANCH wish plug $NAME $GITURL
+
+        done < ${PLUGFILE}
+
+        exit
+
+      fi
+
+    ;;
+    esac
+
+    case $NAME in update)
+
+        __wish-plug-update-git
+        exit
+
+    ;;
+    esac
 
     if [[ $FORCE ]]
     then
@@ -44,40 +109,31 @@ case $1 in
 
     fi
 
-    if [[ -d /www/plug/${NAME} ]]
+    GITSRC=$2
+
+    if [[ -z $GITSRC ]]
     then
 
-      cp -Rfv /www/plug/${NAME} /www/app/plug/
-
-    else
-
-      GITSRC=$2
-
-      if [[ -z $GITSRC ]]
-      then
-
-        __wish-usage plug
-        exit 1
-
-      fi
-
-      if [[ $BRANCH ]]
-      then
-
-        BRANCH="-b ${BRANCH}"
-
-      fi
-
-      git clone ${GITOPTS} ${BRANCH} ${GITSRC} /www/app/plug/${NAME}
-
-      if [[ $GITRM ]]
-      then
-
-        rm -rf /www/app/plug/${NAME}/.git
-
-      fi
+      __wish-usage plug
+      exit 1
 
     fi
+
+    if [[ $BRANCH ]]
+    then
+
+      BRANCH="-b ${BRANCH}"
+
+    fi
+
+    git clone ${GITOPTS} ${BRANCH} ${GITSRC} /www/app/plug/${NAME}
+
+    if [[ $GITRM ]]
+    then
+
+      rm -rf /www/app/plug/${NAME}/.git
+
+    fi   
 
   ;;
 
