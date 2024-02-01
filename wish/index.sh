@@ -51,7 +51,9 @@ case ${URI} in
     		then
       
       			PLUG=${COMMAND}
-	 		COMMAND=${URIPATH[@]:1}
+                        ROUTE=(${URIPATH[@]:1})
+                        COMMAND=${ROUTE[0]}          
+                        ARGS=${ROUTE[@]:1}           
       			Include app/plug/${PLUG}/api.sh
 	 
 		else
