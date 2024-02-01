@@ -3,7 +3,7 @@
 ## runs at container start by supervisor service
 ## this file will be placed as /www/docker-entrypoint.sh
 
-source /www/env.sh
+source /www/boot.sh
 
 for PLUGBIN in $(find app/plug -type d -not -path '*/.*' -name bin)
 do
