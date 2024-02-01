@@ -57,3 +57,9 @@ Include app/.env.${APPENV}
 ## Load LOCAL .env
 Include .env.local
 Include app/.env.local
+
+
+## Load libs
+Include lib
+Include app/lib
+Include app/plug
