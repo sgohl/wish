@@ -102,7 +102,7 @@ case $1 in
     ;;
     esac
 
-    if [[ $FORCE ]]
+    if [[ $FORCE ]] || [[ $WISH_FORCE ]]
     then
 
       rm -rf /www/app/plug/${NAME}
