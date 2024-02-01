@@ -16,9 +16,6 @@ RUN curl -Lso /bin/bash-tpl https://github.com/TekWizely/bash-tpl/releases/downl
 COPY docker-dist /
 RUN chmod +x /bin/*
 
-## app-example  for skeleton/scaffold
-COPY app-example /www/app
-
 ## wish
 COPY wish /www
 RUN chmod +x /www/index.sh
