@@ -8,16 +8,10 @@ SOURCE="${BASH_SOURCE[0]}" ; while [ -h "$SOURCE" ]; do
  SOURCE="$(readlink "$SOURCE")" ; [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done ; DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" ; cd $DIR
 
-## Load Environment
-source env.sh
-
-## Load libs
-Include lib
-Include app/lib
-Include app/plug
+## Boot Application
+source boot.sh
 
 ## Routes
-
 case ${URI} in
 
         api/*)
