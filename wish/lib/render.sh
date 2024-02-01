@@ -124,7 +124,25 @@ Page() {
 	done
 
 	## ¯\_(ツ)_/¯ (sur)render
-	Page 404
+ 	if [[ -f views/404.html ]]
+  	then
+
+   		View 404
+     		exit
+     	fi
+      
+ 	if [[ -f pages/404.html ]]
+  	then
+   
+		Page 404
+  		exit
+
+  	else
+
+   		echo "404 not found"
+     		exit
+
+       fi
 
 }
 
