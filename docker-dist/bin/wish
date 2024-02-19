@@ -65,7 +65,7 @@ case $1 in
 
     case $NAME in install)
 
-      PLUGFILE=${PLUGFILE:-/www/plugs}
+      PLUGFILE=${PLUGFILE:-/www/app/plugs}
 
       if [[ -f ${PLUGFILE} ]]
       then
