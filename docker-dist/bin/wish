@@ -46,17 +46,9 @@ case $1 in
 
   ;;
 
-  boot)
-
-    source /www/boot.sh
-
-  ;;
-
   run)
 
-    source /www/boot.sh
     shift
-
     $@
 
   ;;
