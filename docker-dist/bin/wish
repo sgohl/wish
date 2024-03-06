@@ -52,6 +52,15 @@ case $1 in
 
   ;;
 
+  run)
+
+    source /www/boot.sh
+    shift
+
+    $@
+
+  ;;
+
   plug|pl*)
 
     shift;
