@@ -9,7 +9,7 @@ SOURCE="${BASH_SOURCE[0]}" ; while [ -h "$SOURCE" ]; do
 done ; DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" ; cd $DIR
 
 ## Boot Application
-source boot.sh
+source /www/boot.sh
 
 ## Routes
 case ${URI} in
