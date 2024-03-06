@@ -61,7 +61,7 @@ case $COMMAND in
 
   ;;
 
-  log)
+  log|l)
 
     case $1 in
 
