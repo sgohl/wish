@@ -10,6 +10,9 @@ do
   PATH=${PATH}:${PLUGBIN}
 done
 
+## Crontabs
+find /www/app -type f -not -path '*/.*' -mindepth 1 -maxdepth 3 -name "cron*" | xargs cat | crontab -
+
 ## Chain app entrypoint
 source /www/app/docker-entrypoint.sh
 
