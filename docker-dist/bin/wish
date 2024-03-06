@@ -83,7 +83,6 @@ case $COMMAND in
 
   plug|pl*)
 
-    shift;
     NAME=$1
 
     if [[ -z $NAME ]]
