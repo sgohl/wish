@@ -12,6 +12,8 @@ RUN apk add -U --no-cache --allow-untrusted --repository=https://dl-cdn.alpineli
 RUN curl -Lso /bin/bash-tpl https://github.com/TekWizely/bash-tpl/releases/download/v0.7.1/bash-tpl \
 &&  chmod +x /bin/bash-tpl
 
+RUN mkdir /root/.cache
+
 ## docker-dist
 COPY docker-dist /
 RUN chmod +x /bin/*
