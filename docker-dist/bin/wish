@@ -3,6 +3,7 @@
 ##
 ##
 
+cd /www
 source /www/boot.sh
 
 __wish-usage() {
@@ -38,7 +39,14 @@ __wish-plug-update-git() {
 
 }
 
-case $1 in
+log() {
+  echo "WISH:$(date): $@" >> /tmp/wish.log
+}
+
+COMMAND=$1
+shift
+
+case $COMMAND in
 
   '')
 
@@ -48,8 +56,28 @@ case $1 in
 
   run)
 
-    shift
+    log "run $@"
     $@
+
+  ;;
+
+  log)
+
+    case $1 in
+
+      '')
+
+          tail -f /tmp/wish.log
+
+      ;;
+
+      *)
+
+          log $@
+
+      ;;
+
+    esac
 
   ;;
 
