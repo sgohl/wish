@@ -5,7 +5,7 @@ ENTRYPOINT []
 CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf", "--pidfile", "/var/run/supervisord.pid"]
 
 RUN apk upgrade
-RUN apk add -U --no-cache bash supervisor curl jq jo coreutils util-linux libc6-compat nginx git ts aha openssh socat openldap-clients
+RUN apk add -U --no-cache bash supervisor curl jq jo coreutils util-linux libc6-compat nginx git ts aha openssh socat openldap-clients ssmtp
 RUN apk add -U --no-cache --allow-untrusted --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community/ cronie
 
 ## bash-tpl rendering engine
