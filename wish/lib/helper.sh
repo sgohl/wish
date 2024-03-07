@@ -15,10 +15,9 @@ Expect() {
 
 }
 
-
 Mail() {
 
-    ## -f : From
+    ## -f : From  -> default: ${MAIL_FROM}
     ## -t : To
     ## -s : Subject
 
@@ -29,18 +28,14 @@ Mail() {
 
     fi
 
-    if [[ ${MAIL_FROM} ]]
-    then
-        FROM="${MAIL_FROM}"
-    else
-        FROM="${APPNAME} <root@localhost>"
-    fi
-    
-    while getopts ":ft:s:" opt; do
-        case $opt in
-            f) FROM="${OPTARG}";;
-            t) TO="${OPTARG}";;
-            s) SUBJECT="${OPTARG}";;
+    FROM="${MAIL_FROM:-}"
+
+    while getopts ":f::t:s:" OPT
+    do
+        case ${OPT} in
+            f) FROM="$OPTARG";;
+            t) TO="$OPTARG";;
+            s) SUBJECT="$OPTARG";;
         esac
     done
 
