@@ -61,7 +61,9 @@ LoggedUser() {
 
 }
 
-alias User=LoggedUser
+User() {
+        LoggedUser
+}
 
 Session() {
 
