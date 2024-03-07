@@ -48,7 +48,7 @@ Redirect() {
 
 }
 
-LoggedUser() {
+User() {
 
 	## returns the name of logged-in user (content of session file)
 
@@ -61,8 +61,9 @@ LoggedUser() {
 
 }
 
-User() {
-        LoggedUser
+LoggedUser() {
+	## compatibility
+        User
 }
 
 Session() {
