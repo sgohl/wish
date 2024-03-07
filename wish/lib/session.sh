@@ -61,6 +61,8 @@ LoggedUser() {
 
 }
 
+alias User=LoggedUser
+
 Session() {
 
 	set -eu
