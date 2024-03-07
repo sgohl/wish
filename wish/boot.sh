@@ -59,8 +59,13 @@ Include /www/app/.env.${APPENV}
 ## Load LOCAL .env                                                                                                                                                                                                                                           
 Include /www/.env.local                                                                                                                                                                                                                                      
 Include /www/app/.env.local                                                                                                                                                                                                                                  
-                                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                             
+
+## Load Plug .env
+for ENV in $(find /www/app/plug -type f -mindepth 2 -maxdepth 2 -name ".env*")
+do
+    Include $ENV
+done
+
 ## Load libs                                                                                                                                                                                                                                                 
 Include /www/lib                                                                                                                                                                                                                                             
 Include /www/app/lib                                                                                                                                                                                                                                         
