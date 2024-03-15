@@ -50,6 +50,16 @@ Page() {
 	
 	fi
 
+	if [[ -z ${PAGE} ]]
+	then
+
+		## URI empty; hence PAGE still empty -> Render default Page index (home page without URI)
+
+		Render app/pages/index.html
+		return
+
+	fi
+ 
 	## PAGE or URI given, traverse to find correct file
 
 	DIRNAME=$(dirname ${PAGE})
