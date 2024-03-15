@@ -12,8 +12,8 @@ __wish-usage() {
 
     plug)
 
-      echo "1: install all plugins from file (/www/plugs): $0 plug install"
-      echo "2: update all plugins from file (/www/plugs): $0 plug update"
+      echo "1: install all plugins from file (${PLUGFILE}): $0 plug install"
+      echo "2: update all plugins from file (${PLUGFILE}): $0 plug update"
       echo "3: install given plugin: $0 plug NAME GIT-URL"
 
     ;;
