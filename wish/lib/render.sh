@@ -90,7 +90,7 @@ Page() {
 	## $URI_LAST might be positional argument. check for parent html file
 	## URI=yourcrud/edit/123 resolves to yourcrud/edit.html
 
-	PARENT="app/pages/$(dirname ${URI}).html app/plug/${DIRNAME}/pages/$(dirname ${URI}).html app/plug/${BASENAME}/pages/$(dirname ${URI}).html app/plug/$(dirname ${DIRNAME})/pages/$(basename $(dirname $PAGE)).html"
+	PARENT="app/plug/${DIRNAME}/pages/$(dirname ${URI}).html app/plug/${BASENAME}/pages/$(dirname ${URI}).html app/plug/$(dirname ${DIRNAME})/pages/$(basename $(dirname $PAGE)).html app/pages/$(dirname ${URI})/$(basename ${URI}).html app/pages/$(dirname ${URI}).html"
 
 	for FILE in ${PARENT}
 	do
