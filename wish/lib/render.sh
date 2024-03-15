@@ -13,6 +13,29 @@ Render() {
 
 }
 
+404() {
+
+	if [[ -f app/views/404.html ]]
+  	then
+
+   		View 404
+     		exit
+     	fi
+      
+ 	if [[ -f app/pages/404.html ]]
+  	then
+   
+		Page 404
+  		exit
+
+  	else
+
+   		echo "404 not found"
+     		exit
+
+       fi
+
+}
 
 View() {
 
@@ -117,33 +140,24 @@ Page() {
 
 			## URI is directory, Render subdir-index
 
-			Render ${DIR}/index.html
-			return
+   			if [[ -f ${DIR}/index.html ]]
+      			then
+
+  				Render ${DIR}/index.html
+      				return
+	  		
+     			else
+
+    				404
+
+ 			fi
 		
 		fi
 
 	done
 
 	## ¯\_(ツ)_/¯ (sur)render
- 	if [[ -f app/views/404.html ]]
-  	then
-
-   		View 404
-     		exit
-     	fi
-      
- 	if [[ -f app/pages/404.html ]]
-  	then
-   
-		Page 404
-  		exit
-
-  	else
-
-   		echo "404 not found"
-     		exit
-
-       fi
+ 	404
 
 }
 
