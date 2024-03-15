@@ -50,16 +50,6 @@ Page() {
 	
 	fi
 
-	if [[ -z ${PAGE} ]]
-	then
-
-		## PAGE still empty -> Render default Page index
-
-		Render app/pages/index.html
-		return
-
-	fi
-
 	## PAGE or URI given, traverse to find correct file
 
 	DIRNAME=$(dirname ${PAGE})
@@ -124,14 +114,14 @@ Page() {
 	done
 
 	## ¯\_(ツ)_/¯ (sur)render
- 	if [[ -f views/404.html ]]
+ 	if [[ -f app/views/404.html ]]
   	then
 
    		View 404
      		exit
      	fi
       
- 	if [[ -f pages/404.html ]]
+ 	if [[ -f app/pages/404.html ]]
   	then
    
 		Page 404
