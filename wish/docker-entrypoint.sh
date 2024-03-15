@@ -10,6 +10,8 @@ do
   PATH=${PATH}:${PLUGBIN}
 done
 
+mkdir -p ${PATH_SESSION}
+
 ## Crontabs
 find /www/app -type f -not -path '*/.*' -mindepth 1 -maxdepth 3 -name "cron*" | xargs cat | crontab -
 
