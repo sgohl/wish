@@ -33,3 +33,4 @@ ENV SPV_SHELL2HTTP=true
 ENV SPV_CRON=true
 ENV SPV_ENTRYPOINT=true
 
+ENV PLUGFILE=/www/app/wishplugs
