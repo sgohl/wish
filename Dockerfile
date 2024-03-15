@@ -8,6 +8,8 @@ RUN apk upgrade
 RUN apk add -U --no-cache bash supervisor curl jq jo coreutils util-linux libc6-compat nginx git ts aha openssh socat openldap-clients ssmtp
 RUN apk add -U --no-cache --allow-untrusted --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community/ cronie
 
+RUN apk add -U --no-cache docker
+
 ## bash-tpl rendering engine
 RUN curl -Lso /bin/bash-tpl https://github.com/TekWizely/bash-tpl/releases/download/v0.7.1/bash-tpl \
 &&  chmod +x /bin/bash-tpl
