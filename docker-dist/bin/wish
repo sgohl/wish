@@ -93,7 +93,7 @@ case $COMMAND in
 
     case $NAME in install)
 
-      PLUGFILE=${PLUGFILE:-/www/app/plugs}
+      PLUGFILE=${PLUGFILE:-/www/app/wishplugs}
 
       if [[ -f ${PLUGFILE} ]]
       then
