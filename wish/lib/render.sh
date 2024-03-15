@@ -60,7 +60,8 @@ Page() {
 
 	fi
  
-	## PAGE or URI given, traverse to find correct file
+	## PAGE or URI given, traverse to find correct file; plugin wins before base app. 
+        ## WARNING: same page names used in different plugins collide. alphabetic order; first found wins.
 
 	DIRNAME=$(dirname ${PAGE})
 	BASENAME=$(basename ${PAGE})
