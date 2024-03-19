@@ -47,7 +47,13 @@ Setenv COOKIE_LIFETIME 30
                                                                                                                                                                                                                                                              
 ## see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value                                                                                                                                                           
 Setenv COOKIE_SAMESITE Strict                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                             
+
+## Load Plug .env
+for ENV in $(find /www/app/plug -type f -mindepth 2 -maxdepth 2 -name ".env*")
+do
+    Include $ENV
+done
+
 ## Load APP specific .env                                                                                                                                                                                                                                    
 Include /www/.env                                                                                                                                                                                                                                            
 Include /www/app/.env                                                                                                                                                                                                                                        
@@ -58,13 +64,7 @@ Include /www/app/.env.${APPENV}
                                                                                                                                                                                                                                                              
 ## Load LOCAL .env                                                                                                                                                                                                                                           
 Include /www/.env.local                                                                                                                                                                                                                                      
-Include /www/app/.env.local                                                                                                                                                                                                                                  
-
-## Load Plug .env
-for ENV in $(find /www/app/plug -type f -mindepth 2 -maxdepth 2 -name ".env*")
-do
-    Include $ENV
-done
+Include /www/app/.env.local                                                                                                                                                                                                                               
 
 ## Load libs                                                                                                                                                                                                                                                 
 Include /www/lib                                                                                                                                                                                                                                             
