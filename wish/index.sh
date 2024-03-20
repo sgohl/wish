@@ -58,6 +58,7 @@ case ${URI} in
 	 
 		else
 
+                        ARGS=(${URIPATH[@]:1})
   			Include app/api.sh
 
      		fi
