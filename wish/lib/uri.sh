@@ -17,3 +17,27 @@ do
 	VALUE=$(echo ${ITEM} | cut -f2 -d'=')
 	export ${KEY}=${VALUE}
 done
+
+
+Redirect() {
+
+	## for browser-based redirects
+
+ 	TARGET=${1:-}
+
+	case ${TARGET} in
+ 
+		back|refer)
+   			TARGET=${HTTP_REFERER}
+		;;
+  
+		*)
+			TARGET="/${TARGET}"
+		;;
+  
+	esac
+
+ 	echo '<html><meta http-equiv="refresh" content="0; URL='"${TARGET}"'" /></html>'
+  	exit
+
+}
