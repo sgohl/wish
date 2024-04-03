@@ -68,5 +68,6 @@ Include /www/app/.env.local
 
 ## Load libs
 Include /www/lib
-Include /www/app/lib
 Include /www/app/plug
+Include /www/app/lib
+
