@@ -11,6 +11,13 @@ done ; DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )" ; cd $DIR
 ## Boot Application
 source /www/boot.sh
 
+if [[ ${HTTP_X_FORWARDED_HOST} ]]
+then
+
+	MYDOMAIN=${HTTP_X_FORWARDED_HOST}
+
+fi
+
 ## Routes
 case ${URI} in
 
