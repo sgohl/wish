@@ -3,8 +3,9 @@
 ##
 ##
 
+set -a
 cd /www
-source /www/boot.sh
+source boot.sh
 
 __wish-usage() {
 
