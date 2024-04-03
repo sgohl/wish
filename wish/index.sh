@@ -14,7 +14,7 @@ source /www/boot.sh
 if [[ ${HTTP_X_FORWARDED_HOST} ]]
 then
 
-	MYDOMAIN=${HTTP_X_FORWARDED_HOST}
+	HTTP_HOST=${HTTP_X_FORWARDED_HOST}
 
 fi
 
