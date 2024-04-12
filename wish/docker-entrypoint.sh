@@ -8,6 +8,7 @@ source /www/boot.sh
 for PLUGBIN in $(find app/plug -type d -not -path '*/.*' -name bin)
 do
   PATH=${PATH}:${PLUGBIN}
+  chmod -R +x ${PLUGBIN}
 done
 
 mkdir -p ${PATH_SESSION}
