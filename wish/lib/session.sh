@@ -6,11 +6,27 @@ then
 	unset SESSION
 fi
 
+Public() {
+
+	## a list of public URLs accessible without Login
+ 	## while they're secured by Guard/Role
+
+	if grep -q -o ${URI} /www/app/public.txt
+        then
+
+                return 0
+
+        fi
+
+}
+
 Guard() {
 
 	## To show an element for only logged-in users, Guard must be chained with &&
  	## or via if-block
 	## example: Guard && Fragment foobar
+
+ 	Public
 
 	if [[ ! -f ${PATH_SESSION}/${SESSION} ]]
 	then
