@@ -11,12 +11,15 @@ Public() {
 	## a list of public URLs accessible without Login
  	## while they're secured by Guard/Role
 
-	if grep -q -o ${URI} /www/app/public.txt
-        then
-
-                return 0
-
-        fi
+	if [[ -f /www/app/public.txt ]]
+ 	then
+		if grep -q -o ${URI} /www/app/public.txt
+	        then
+	
+	                return 0
+	
+	        fi
+	 fi
 
 }
 
