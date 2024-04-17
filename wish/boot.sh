@@ -71,3 +71,10 @@ Include /www/lib
 Include /www/app/plug
 Include /www/app/lib
 
+## Plug Bins
+for PLUGBIN in $(find /www/app/plug -type d -not -path '*/.*' -name bin)
+do
+  PATH=${PATH}:${PLUGBIN}
+done
+
+
