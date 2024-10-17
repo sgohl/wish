@@ -13,8 +13,11 @@ done
 
 mkdir -p ${PATH_SESSION}
 
-## Crontabs app
-find /www/app -type f -not -path '*/.*' -mindepth 1 -maxdepth 1 -name "cron*" | xargs cat | crontab -
+## Crontabs app + plugs
+(
+  find /www/app -type f -not -path '*/.*' -mindepth 1 -maxdepth 1 -name "cron*"
+  find /www/app -type f -path "*/plug/*" -not -path '*/.*' -mindepth 3 -maxdepth 3 -name "cron*"
+) | xargs cat | grep -v ^$ | sed 's/$/\n/' | crontab -
 
 ## Chain app entrypoint
 source /www/app/docker-entrypoint.sh
