@@ -41,7 +41,9 @@ __wish-plug-update-git() {
 }
 
 log() {
+
   echo "WISH:$(date): $@" >> /tmp/wish.log
+
 }
 
 COMMAND=$1
